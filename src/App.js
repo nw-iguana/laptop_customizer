@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Features from './Features';
 
 class App extends Component {
   constructor(props){
@@ -81,10 +82,11 @@ class App extends Component {
           <h5>Customize your laptop</h5>  
         </header>      
         <main>
-          <section className="main__form">
+          <Features features={features}/>
+          {/* <section className="main__form">
             <h3>TECH SPECS AND CUSTOMIZATIONS</h3>
             { features }
-          </section>
+          </section> */}
           <section className="main__summary">
             <h3>NEW GREENLEAF 2018</h3>
             {summary}
