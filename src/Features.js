@@ -1,4 +1,5 @@
 import React from 'react';
+import FeatureItem from './FeatureItem';
 
 function Features(props) {
     console.log(props);
@@ -7,15 +8,12 @@ function Features(props) {
             const options = props.features[key].map((item, index) => {
               const selectedClass = item.name === props.selected[key].name ? 'feature__selected' : '';
               const featureClass = 'feature__option ' + selectedClass;
-              return <li key={index} className="feature__item">
-                <div className={featureClass}
-                  
-                  onClick={e => props.updateFeature(key, item)}>
-                    { item.name }
-                    ({ new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD'})
-                      .format(item.cost) })
-                </div>
-              </li>
+              return <FeatureItem key={index}
+                                  featureClass={featureClass}
+                                  item={item}
+                                  featureKey={key}
+                                  updateFeature={props.updateFeature}
+                                  />
             });
 
             return <div className="feature" key={key}>
